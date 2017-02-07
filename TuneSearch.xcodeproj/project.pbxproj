@@ -13,6 +13,7 @@
 		4B5515F61E4264FA003A13A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B5515F51E4264FA003A13A2 /* Assets.xcassets */; };
 		4B5515F91E4264FA003A13A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5515F71E4264FA003A13A2 /* LaunchScreen.storyboard */; };
 		4B5516011E4A57C1003A13A2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5516001E4A57C1003A13A2 /* Reachability.swift */; };
+		4B5516031E4A72F5003A13A2 /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5516021E4A72F5003A13A2 /* ArtistCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4B5515F81E4264FA003A13A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B5515FA1E4264FA003A13A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5516001E4A57C1003A13A2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		4B5516021E4A72F5003A13A2 /* ArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				4B5515EE1E4264FA003A13A2 /* AppDelegate.swift */,
 				4B5515F01E4264FA003A13A2 /* ViewController.swift */,
+				4B5516021E4A72F5003A13A2 /* ArtistCell.swift */,
 				4B5516001E4A57C1003A13A2 /* Reachability.swift */,
 				4B5515F21E4264FA003A13A2 /* Main.storyboard */,
 				4B5515F51E4264FA003A13A2 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			files = (
 				4B5515F11E4264FA003A13A2 /* ViewController.swift in Sources */,
 				4B5515EF1E4264FA003A13A2 /* AppDelegate.swift in Sources */,
+				4B5516031E4A72F5003A13A2 /* ArtistCell.swift in Sources */,
 				4B5516011E4A57C1003A13A2 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

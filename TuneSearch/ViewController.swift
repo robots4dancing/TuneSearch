@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let hostName = "https://itunes.apple.com/search?term="
     var reachability :Reachability?
-    var searchArray = [String]()
+    var artistArray = [ArtistCell]()
     
     @IBOutlet var searchTextField   :UITextField!
     @IBOutlet var searchButton      :UIButton!
@@ -21,15 +21,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: - TableView Methods
     
     func updateScreen() {
+        print("screen updated")
         searchTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchArray.count
+        return artistArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        let currentCell = artistArray[indexPath.row]
+        cell.textLabel!.text = currentCell.artistName
+        cell.detailTextLabel!.text = currentCell.albumName + ": " + currentCell.songName
         return cell
     }
     
@@ -45,14 +49,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print("Artist Name:\(searchDictionary["artistName"])")
                 print("Album Name:\(searchDictionary["collectionCensoredName"])")
                 print("Song Name:\(searchDictionary["trackCensoredName"])")
+                guard let artist = searchDictionary["artistName"] else {
+                    continue
+                }
+                guard let album = searchDictionary["collectionCensoredName"] else {
+                    continue
+                }
+                guard let song = searchDictionary["trackCensoredName"] else {
+                    continue
+                }
+                let currentSearchItem = ArtistCell(artist: artist as! String, album: album as! String, song: song as! String)
+                artistArray.append(currentSearchItem)
             }
         }catch {
             print("JSON Parsing Error")
         }
+        self.updateScreen()
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
-        
     }
     
     func getFile(filename: String) {
@@ -92,6 +107,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        if reach.isReachable {
             //getFile(filename: "/classfiles/iOS_URL_Class_Get_File.txt")
             //getFile(filename: "/classfiles/flavors.json")
+            artistArray.removeAll()
             let searchTerm = searchTextField.text! + "&attribute=artistTerm"
             getFile(filename: searchTerm)
 //        } else {
